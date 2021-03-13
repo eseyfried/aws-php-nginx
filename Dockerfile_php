@@ -1,0 +1,8 @@
+FROM php:7.3-fpm-alpine
+
+COPY . /var/www
+
+WORKDIR /var/www
+
+Expose 9000
+CMD ["php-fpm"]

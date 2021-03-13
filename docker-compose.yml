@@ -1,0 +1,26 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile_php
+    image: ets/aws-php
+    container_name: php
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www
+      - ./config/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile_nginx
+    image: ets/aws-nginx
+    container_name: nginx
+    restart: unless-stopped
+    ports: 
+      - 8008:80
+    volumes:
+      - ./:/var/wwww
+      - ./config/nginx/conf.d/:/etc/nginx/conf.d/
+    depends_on:
+      - app
