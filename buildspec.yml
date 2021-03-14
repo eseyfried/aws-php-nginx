@@ -14,8 +14,8 @@ version: 0.2
      # - variable
      # - variable
   #git-credential-helper: yes
-#batch:
-  #fast-fail: true
+batch:
+  fast-fail: true
   #build-list:
   #build-matrix:
   #build-graph:
