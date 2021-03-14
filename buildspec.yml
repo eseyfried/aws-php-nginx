@@ -31,7 +31,7 @@ phases:
       # - command
   pre_build:
     commands:
-      - echo Logging in to Amazon ECR...
+      - echo Logging in to Amazon ECR....
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - PHP_REPOSITORY_URI=477829879262.dkr.ecr.us-east-1.amazonaws.com/aws-php
