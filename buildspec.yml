@@ -42,10 +42,10 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the PHP Docker image...
-      - docker build -t $PHP_REPOSITORY_URI:latest .
+      - docker build -f Dockerfile_php -t $PHP_REPOSITORY_URI:latest .
       - docker tag $PHP_REPOSITORY_URI:latest $PHP_REPOSITORY_URI:$IMAGE_TAG
       - echo Building the NGINX Docker image...
-      - docker build -t $NGINX_REPOSITORY_URI:latest .
+      - docker build -f Dockerfile_nginx -t $NGINX_REPOSITORY_URI:latest .
       - docker tag $NGINX_REPOSITORY_URI:latest $NGINX_REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
